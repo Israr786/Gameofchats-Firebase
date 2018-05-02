@@ -68,7 +68,6 @@ class LoginController: UIViewController {
             // ...
             print(123)
             if error != nil {
-                
                 print(error)
                 return
             }
@@ -88,9 +87,7 @@ class LoginController: UIViewController {
                 print("Saved user succesfully into Firebase")
                 self.dismiss(animated: true, completion: nil)
             })
-    
         }
- 
     }
     
     
