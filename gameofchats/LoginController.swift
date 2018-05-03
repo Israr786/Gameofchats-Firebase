@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class LoginController: UIViewController {
+class LoginController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
 
     let inputsContainerView : UIView = {
     let view = UIView()
@@ -34,27 +34,21 @@ class LoginController: UIViewController {
     
     
     @objc func handleLoginRegister(){
-        
         if loginRegisterSegmentedControl.selectedSegmentIndex == 0 {
             handleLogin()
         } else {
             handleRegister()
-        }
- 
+               }
     }
+    
     func handleLogin(){
-        
         guard let email = emailTextField.text , let password = passwordTextField.text else {return}
-        
         Auth.auth().signIn(withEmail:email, password: password) { (user, error) in
             if error != nil{
                 print(error)
-            }
+                }
             self.dismiss(animated: true, completion: nil)
         }
-        
-        
-        
     }
     
     @objc func handleRegister(){
@@ -62,7 +56,6 @@ class LoginController: UIViewController {
             else
         {   print("Form not valid")
             return
-            
         }
         Auth.auth().createUser(withEmail: email  , password: password) { (user, error) in
             // ...
@@ -71,23 +64,43 @@ class LoginController: UIViewController {
                 print(error)
                 return
             }
-            
-            
+    
             guard let uid = user?.uid else{ return}
             
-           var ref: DatabaseReference!
-           ref = Database.database().reference(fromURL: "https://gameofchats-7cf6a.firebaseio.com/")
-            let userRef = ref.child("users").child(uid)
-            let values = ["name":name,"email":email]
-            userRef.updateChildValues(values, withCompletionBlock: { (err, ref) in
-                if err != nil {
-                    print(err)
-                    return
-                }
-                print("Saved user succesfully into Firebase")
-                self.dismiss(animated: true, completion: nil)
-            })
+            let imageName = NSUUID().uuidString
+            let storageRef = Storage.storage().reference().child("\(imageName).png")
+            if let uploadData = UIImagePNGRepresentation(self.profileimageView.image!){
+                storageRef.putData(uploadData, metadata: nil, completion: { (metaData, error) in
+                    if error != nil {
+                        print(error)
+                    }
+
+                    if let profileImageUrl = metaData?.downloadURL()?.absoluteString {
+                        let values = ["name":name,"email":email,"profileImageUrl":profileImageUrl]
+                        self.registerUserIntoDataWithUid(uid: uid, values: values as [String : AnyObject])
+                    }
+                })
+ 
+            }
+  
+          
         }
+    }
+
+private func registerUserIntoDataWithUid(uid : String ,values : [String:AnyObject]){
+    var ref: DatabaseReference!
+    ref = Database.database().reference(fromURL: "https://gameofchats-7cf6a.firebaseio.com/")
+    let userRef = ref.child("users").child(uid)
+ //   let values = ["name":name,"email":email]
+    userRef.updateChildValues(values, withCompletionBlock: { (err, ref) in
+    if err != nil {
+    print(err)
+    return
+    }
+    print("Saved user succesfully into Firebase")
+    self.dismiss(animated: true, completion: nil)
+    })
+ 
     }
     
     
@@ -96,8 +109,6 @@ class LoginController: UIViewController {
         tf.placeholder = "Name"
         tf.translatesAutoresizingMaskIntoConstraints = false
         return tf
-  
-        
     }()
     
     let nameSeparatorView: UIView = {
@@ -112,8 +123,7 @@ class LoginController: UIViewController {
         tf.placeholder = "Email Address"
         tf.translatesAutoresizingMaskIntoConstraints = false
         return tf
-        
-        
+ 
     }()
     
     let emailSeparatorView: UIView = {
@@ -129,19 +139,46 @@ class LoginController: UIViewController {
         tf.translatesAutoresizingMaskIntoConstraints = false
         tf.isSecureTextEntry = true
         return tf
-        
-        
     }()
     
-    
-    let profileimageView : UIImageView = {
+   lazy var profileimageView : UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named :"got_splash")
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFill
+        imageView.addGestureRecognizer(UITapGestureRecognizer(target:self, action: #selector(handleSelectProfileImageVIew)))
+        imageView.isUserInteractionEnabled = true
         return imageView
-
     }()
+
+    @objc func handleSelectProfileImageVIew(){
+        
+        let picker = UIImagePickerController()
+        picker.delegate = self
+        present(picker, animated: true, completion: nil)
+
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        var selectedImageforProfileImage : UIImage?
+ 
+        if let editedImage = info["UIImagePickerControllerEditedImage"] as? UIImage {
+            selectedImageforProfileImage = editedImage
+        } else if let originalImage = info["UIImagePickerControllerOriginalImage"] as? UIImage {
+            selectedImageforProfileImage = originalImage
+        }
+        
+        if let selectedImage = selectedImageforProfileImage {
+            profileimageView.image = selectedImage
+        }
+    
+        dismiss(animated: true, completion: nil)
+    
+    }
 
     let loginRegisterSegmentedControl : UISegmentedControl = {
         let sc = UISegmentedControl(items:["Login","Register"])

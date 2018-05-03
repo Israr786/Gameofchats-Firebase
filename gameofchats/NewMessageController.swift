@@ -40,7 +40,10 @@ class NewMessageController: UITableViewController {
                 let user = User()
                 user.name = (dictionary["name"] as? String)!
                 user.email = (dictionary["email"] as? String)!
+             //   print(dictionary["profileImageUrl"])
+                user.profileImageUrl = (dictionary["profileImageUrl"] as? String)
                 self.users.append(user)
+               
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
@@ -72,6 +75,27 @@ class NewMessageController: UITableViewController {
         let user  = users[indexPath.row]
         cell.textLabel?.text = user.name
         cell.detailTextLabel?.text = user.email
+        cell.imageView?.image = UIImage(named:"got_splash")
+       
+        
+        
+        if let profileImageUrl = user.profileImageUrl {
+            let ProfileURL = URL(string: profileImageUrl)
+            URLSession.shared.dataTask(with: ProfileURL!, completionHandler: { (data, response, err) in
+                if(err != nil){
+                    print(err)
+                }
+                DispatchQueue.main.async {
+                    cell.imageView?.image = UIImage(data: data!)
+                }
+                
+                
+                
+            }).resume()
+        
+        }
+       
+ 
         return cell
     }
 
