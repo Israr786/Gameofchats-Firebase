@@ -68,49 +68,72 @@ class NewMessageController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.users.count
     }
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 74
+    }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier:cellId, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier:cellId, for: indexPath) as? UserCell
         let user  = users[indexPath.row]
-        cell.textLabel?.text = user.name
-        cell.detailTextLabel?.text = user.email
-        cell.imageView?.image = UIImage(named:"got_splash")
-       
-        
+        cell?.textLabel?.text = user.name
+        cell?.detailTextLabel?.text = user.email
         
         if let profileImageUrl = user.profileImageUrl {
-            let ProfileURL = URL(string: profileImageUrl)
-            URLSession.shared.dataTask(with: ProfileURL!, completionHandler: { (data, response, err) in
-                if(err != nil){
-                    print(err)
-                }
-                DispatchQueue.main.async {
-                    cell.imageView?.image = UIImage(data: data!)
-                }
-                
-                
-                
-            }).resume()
-        
+            cell?.profileImagevIew.loadImageUsingCacheWithStringUrl(urlString: profileImageUrl)
+            
         }
-       
+        
  
-        return cell
+        return cell!
     }
 
+   override  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    
+    let layout = UICollectionViewFlowLayout()
+    let chatlogController = ChatlogController(collectionViewLayout: layout)
+//    let chatlogController = ChatlogController()
+    let chatlogNavigationController = UINavigationController(rootViewController: chatlogController)
+  present(chatlogNavigationController, animated: true, completion: nil)
+
+    }
     
  
 }
 
 class UserCell : UITableViewCell {
     
+    let profileImagevIew : UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named:"got_splash")
+        imageView.layer.cornerRadius = 25
+        imageView.layer.masksToBounds = true
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFill
+        return imageView
+    }()
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        textLabel?.frame = CGRect(x: 64 , y: textLabel!.frame.origin.y - 2, width: textLabel!.frame.width, height: textLabel!.frame.height)
+        detailTextLabel?.frame = CGRect(x: 64 , y: detailTextLabel!.frame.origin.y + 2, width: detailTextLabel!.frame.width, height: detailTextLabel!.frame.height)
+        
+    }
+    
+    
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: .subtitle, reuseIdentifier: reuseIdentifier )
-    }
+        
+        addSubview(profileImagevIew)
+        // iOS 9 constraint
+        profileImagevIew.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 8).isActive = true
+        profileImagevIew.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+        profileImagevIew.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        profileImagevIew.heightAnchor.constraint(equalToConstant: 50).isActive = true
+ 
+}
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-
+}
 }

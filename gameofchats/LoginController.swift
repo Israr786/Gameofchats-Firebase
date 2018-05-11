@@ -10,6 +10,8 @@ import UIKit
 import Firebase
 
 class LoginController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
+    
+    var messagesController : MessagesController?
 
     let inputsContainerView : UIView = {
     let view = UIView()
@@ -47,6 +49,7 @@ class LoginController: UIViewController,UIImagePickerControllerDelegate,UINaviga
             if error != nil{
                 print(error)
                 }
+            self.messagesController?.fetchUserAndSetupNavBarTitle()
             self.dismiss(animated: true, completion: nil)
         }
     }
@@ -68,8 +71,10 @@ class LoginController: UIViewController,UIImagePickerControllerDelegate,UINaviga
             guard let uid = user?.uid else{ return}
             
             let imageName = NSUUID().uuidString
-            let storageRef = Storage.storage().reference().child("\(imageName).png")
-            if let uploadData = UIImagePNGRepresentation(self.profileimageView.image!){
+            let storageRef = Storage.storage().reference().child("\(imageName).jpg")
+            
+            if let uploadData = UIImageJPEGRepresentation(self.profileimageView.image!, 0.3){
+        //    if let uploadData = UIImagePNGRepresentation(self.profileimageView.image!){
                 storageRef.putData(uploadData, metadata: nil, completion: { (metaData, error) in
                     if error != nil {
                         print(error)
@@ -91,12 +96,14 @@ private func registerUserIntoDataWithUid(uid : String ,values : [String:AnyObjec
     var ref: DatabaseReference!
     ref = Database.database().reference(fromURL: "https://gameofchats-7cf6a.firebaseio.com/")
     let userRef = ref.child("users").child(uid)
- //   let values = ["name":name,"email":email]
     userRef.updateChildValues(values, withCompletionBlock: { (err, ref) in
-    if err != nil {
-    print(err)
-    return
-    }
+   
+        if err != nil {
+             print(err)
+              return
+        }
+        
+        self.messagesController?.fetchUserAndSetupNavBarTitle()
     print("Saved user succesfully into Firebase")
     self.dismiss(animated: true, completion: nil)
     })

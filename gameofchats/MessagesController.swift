@@ -34,27 +34,34 @@ class MessagesController: UITableViewController {
         if Auth.auth().currentUser?.uid == nil{
             perform(#selector(handleLogOut), with: nil, afterDelay: 0)
         } else {
-            var ref: DatabaseReference!
-            ref = Database.database().reference()
-            let userID = Auth.auth().currentUser?.uid
-            ref.child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
-                // Get user value
-                print(snapshot)
-                if let value = snapshot.value as? NSDictionary {
-              //  let username = value?["name"] as? String ?? ""
-                //let user = User(username: name)
-                    self.navigationItem.title = value["name"] as? String
-                }
-                
-                // ...
-            }) { (error) in
-                print(error.localizedDescription)
-            }
+           fetchUserAndSetupNavBarTitle()
             
         }
     }
   
     
+    func fetchUserAndSetupNavBarTitle(){
+        var ref: DatabaseReference!
+        ref = Database.database().reference()
+        guard let userID = Auth.auth().currentUser?.uid else {return}
+        ref.child("users").child(userID).observeSingleEvent(of: .value, with: { (snapshot) in
+            // Get user value
+            print(snapshot)
+            if let value = snapshot.value as? NSDictionary {
+                //  let username = value?["name"] as? String ?? ""
+                //let user = User(username: name)
+                self.navigationItem.title = value["name"] as? String
+            }
+            // ...
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+        
+        
+        
+        
+        
+    }
     override var preferredStatusBarStyle: UIStatusBarStyle{
         return .lightContent
         
@@ -62,8 +69,6 @@ class MessagesController: UITableViewController {
 
     
     @objc func handleLogOut(){
-     
-        
         do {
             try Auth.auth().signOut()
         }
@@ -72,11 +77,9 @@ class MessagesController: UITableViewController {
         }
         
         let loginController = LoginController()
+        loginController.messagesController = self
       present(loginController, animated:true , completion: nil)
-        
-        
-        
-        
+
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

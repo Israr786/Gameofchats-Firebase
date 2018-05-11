@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "gameofchats/LoginController.swift"
-            timestampString = "547080730.830858"
+            timestampString = "547718057.342674"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
             landmarkName = "handleRegister()"
             landmarkType = "7">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "gameofchats/LoginController.swift"
-            timestampString = "547080730.830929"
+            timestampString = "547718057.3427711"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
             landmarkName = "loginRegisterButton"
             landmarkType = "24">
             <Locations>
@@ -42,7 +42,7 @@
                   moduleName = "gameofchats"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/apple/Documents/CocoaPractice_Project/gameofchats/gameofchats/LoginController.swift"
-                  timestampString = "547080730.940129"
+                  timestampString = "547083282.344403"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "24"
@@ -57,7 +57,7 @@
                   moduleName = "gameofchats"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/apple/Documents/CocoaPractice_Project/gameofchats/gameofchats/LoginController.swift"
-                  timestampString = "547080730.943357"
+                  timestampString = "547083282.3463449"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "25"
@@ -72,7 +72,7 @@
                   moduleName = "gameofchats"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/apple/Documents/CocoaPractice_Project/gameofchats/gameofchats/LoginController.swift"
-                  timestampString = "547080730.9465621"
+                  timestampString = "547083282.3484941"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "24"
@@ -87,7 +87,7 @@
                   moduleName = "gameofchats"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/apple/Documents/CocoaPractice_Project/gameofchats/gameofchats/LoginController.swift"
-                  timestampString = "547080730.9492559"
+                  timestampString = "547083282.350901"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "24"
@@ -102,7 +102,7 @@
                   moduleName = "gameofchats"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/apple/Documents/CocoaPractice_Project/gameofchats/gameofchats/LoginController.swift"
-                  timestampString = "547080730.952657"
+                  timestampString = "547083282.353247"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "24"
@@ -118,117 +118,8 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "gameofchats/LoginController.swift"
-            timestampString = "547080730.830981"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "144"
-            endingLineNumber = "144"
-            landmarkName = "profileimageView"
-            landmarkType = "24">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "gameofchats.LoginController.profileimageView.getter : __ObjC.UIImageView"
-                  moduleName = "gameofchats"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/apple/Documents/CocoaPractice_Project/gameofchats/gameofchats/LoginController.swift"
-                  timestampString = "547080730.960915"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "144"
-                  endingLineNumber = "144"
-                  offsetFromSymbolStart = "143">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; __ObjC.UIImageView in gameofchats.LoginController.profileimageView.getter : __ObjC.UIImageView"
-                  moduleName = "gameofchats"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/apple/Documents/CocoaPractice_Project/gameofchats/gameofchats/LoginController.swift"
-                  timestampString = "547080730.962356"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "145"
-                  endingLineNumber = "145"
-                  offsetFromSymbolStart = "17">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "gameofchats.LoginController.profileimageView.setter : __ObjC.UIImageView"
-                  moduleName = "gameofchats"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/apple/Documents/CocoaPractice_Project/gameofchats/gameofchats/LoginController.swift"
-                  timestampString = "547080730.963758"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "144"
-                  endingLineNumber = "144"
-                  offsetFromSymbolStart = "112">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "gameofchats.LoginController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; gameofchats.LoginController"
-                  moduleName = "gameofchats"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/apple/Documents/CocoaPractice_Project/gameofchats/gameofchats/LoginController.swift"
-                  timestampString = "547080730.965257"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "144"
-                  endingLineNumber = "144"
-                  offsetFromSymbolStart = "829">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "gameofchats.LoginController.init(coder: __ObjC.NSCoder) -&gt; Swift.Optional&lt;gameofchats.LoginController&gt;"
-                  moduleName = "gameofchats"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/apple/Documents/CocoaPractice_Project/gameofchats/gameofchats/LoginController.swift"
-                  timestampString = "547080730.966725"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "144"
-                  endingLineNumber = "144"
-                  offsetFromSymbolStart = "773">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "gameofchats/NewMessageController.swift"
-            timestampString = "547080730.831032"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "82"
-            endingLineNumber = "82"
-            landmarkName = "tableView(_:cellForRowAt:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "gameofchats/NewMessageController.swift"
-            timestampString = "547080730.831391"
+            timestampString = "547718057.342854"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "42"
@@ -244,7 +135,7 @@
                   moduleName = "gameofchats"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/apple/Documents/CocoaPractice_Project/gameofchats/gameofchats/NewMessageController.swift"
-                  timestampString = "547080730.974619"
+                  timestampString = "547083282.381497"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "42"
@@ -259,7 +150,7 @@
                   moduleName = "gameofchats"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/apple/Documents/CocoaPractice_Project/gameofchats/gameofchats/NewMessageController.swift"
-                  timestampString = "547080730.976065"
+                  timestampString = "547083282.383531"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "42"
@@ -276,44 +167,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "gameofchats/NewMessageController.swift"
-            timestampString = "547080730.83165"
+            timestampString = "547718057.342943"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "44"
             endingLineNumber = "44"
             landmarkName = "fetchUser()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "gameofchats/NewMessageController.swift"
-            timestampString = "547080730.831881"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
-            landmarkName = "tableView(_:cellForRowAt:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "gameofchats/NewMessageController.swift"
-            timestampString = "547080730.832117"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
-            landmarkName = "tableView(_:numberOfRowsInSection:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
